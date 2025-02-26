@@ -2,14 +2,27 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Генератор цитат</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор цитат 2.0</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Генератор вдохновляющих цитат</h1>
-    <div id="quote">Нажми кнопку ниже!</div>
-    <button onclick="generateQuote()">Новая цитата</button>
-    <button onclick="copyQuote()">Скопировать цитату</button> <!-- Новая кнопка -->
+    <div class="container">
+        <h1>Вдохновение каждый день</h1>
+        <div id="quote" class="quote-box"></div>
+        <div class="buttons">
+            <button onclick="generateQuote()">Новая цитата</button>
+            <button onclick="copyQuote()">Скопировать</button>
+            <button onclick="shareQuote()">Поделиться</button>
+        </div>
+        <select id="category" onchange="generateQuote()">
+            <option value="all">Все категории</option>
+            <option value="life">Жизнь</option>
+            <option value="humor">Юмор</option>
+            <option value="motivation">Мотивация</option>
+        </select>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
