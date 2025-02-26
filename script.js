@@ -9,4 +9,10 @@ function generateQuote() {
     document.getElementById('quote').innerHTML = quotes[randomIndex];
 }
 
+function copyQuote() {
+    const quote = document.getElementById('quote').innerHTML;
+    navigator.clipboard.writeText(quote);
+    alert("Цитата скопирована!");
+}
+
 generateQuote();
