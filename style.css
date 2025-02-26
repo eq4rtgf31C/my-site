@@ -1,28 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     text-align: center;
-    background-image: url('background.jpg'); /* Добавляем фон */
-    background-size: cover; /* Растягиваем на весь экран */
-    background-position: center; /* Центрируем */
-    margin-top: 50px;
+    background-image: url('background.jpg'); /* Большой фон */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Фон не прокручивается */
+    min-height: 100vh; /* Полная высота экрана */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-h1 { color: #333; }
-#quote {
-    font-size: 24px;
+
+.container {
+    background: rgba(255, 255, 255, 0.9); /* Полупрозрачный белый */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 90%;
+    animation: fadeIn 1s ease-in;
+}
+
+h1 {
+    color: #222;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.quote-box {
+    font-size: 1.5em;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный фон для читаемости */
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2); /* Градиент */
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    margin: 20px;
+    margin: 20px 0;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
 }
+
+.quote-box:hover {
+    transform: scale(1.02); /* Легкое увеличение при наведении */
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
 button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #4CAF50;
+    padding: 12px 25px;
+    font-size: 1em;
+    background: linear-gradient(45deg, #4CAF50, #66bb6a);
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
-    margin: 5px; /* Отступ между кнопками */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
-button:hover { background-color: #45a049; }
+
+button:hover {
+    background: linear-gradient(45deg, #45a049, #5daf63);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+select {
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    background: #fff;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+select:hover {
+    border-color: #4CAF50;
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    h1 { font-size: 1.8em; }
+    .quote-box { font-size: 1.2em; }
+    button { padding: 10px 20px; }
+}
